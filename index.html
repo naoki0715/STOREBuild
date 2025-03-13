@@ -528,6 +528,106 @@ section {
   color: var(--accent-color-purple);
   background-color: rgba(139, 92, 246, 0.1);
 }
+/* 登録工事業者紹介セクション */
+.partners-section {
+  background-color: #f8fafc;
+  padding: 80px 0;
+}
+
+.partners-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  color: var(--gray-600);
+}
+
+.partners-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.partner-logo-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 180px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--gray-200);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-logo-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: rgba(44, 94, 255, 0.2);
+}
+
+.partner-logo {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.partner-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.partner-specialty {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+.partners-more {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.partners-more p {
+  margin-bottom: 20px;
+  color: var(--gray-600);
+}
+
+.partners-cta {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .partners-logos {
+    gap: 20px;
+  }
+  
+  .partner-logo-box {
+    width: 150px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .partners-logos {
+    gap: 15px;
+  }
+  
+  .partner-logo-box {
+    width: 130px;
+    padding: 10px;
+  }
+  
+  .partner-name {
+    font-size: 0.8rem;
+  }
+  
+  .partner-specialty {
+    font-size: 0.7rem;
+  }
+}
 
 /* 使い方フローセクション */
 .how-it-works-section {
@@ -1334,6 +1434,49 @@ footer {
     </div>
   </div>
 </div>
+</section>
+
+<!-- 登録工事業者紹介セクション -->
+<section id="partners" class="partners-section">
+  <div class="container">
+    <p class="section-subtitle">PARTNERS</p>
+    <h2 class="section-title" style="color: #001350; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">登録工事業者の一部をご紹介</h2>
+    
+    <p class="partners-description">CAREECONには、厳格な審査を通過した信頼できる工事業者が多数登録しています。<br>確かな実績と技術を持つパートナー企業が、高品質な店舗づくりをサポートします。</p>
+    
+    <div class="partners-logos">
+      <div class="partner-logo-box">
+        <img src="/api/placeholder/120/80" alt="株式会社匠建設" class="partner-logo">
+        <p class="partner-name">株式会社匠建設</p>
+        <p class="partner-specialty">内装工事専門</p>
+      </div>
+      <div class="partner-logo-box">
+        <img src="/api/placeholder/120/80" alt="大和工務店" class="partner-logo">
+        <p class="partner-name">大和工務店</p>
+        <p class="partner-specialty">店舗設計・施工</p>
+      </div>
+      <div class="partner-logo-box">
+        <img src="/api/placeholder/120/80" alt="リノベーションプラス" class="partner-logo">
+        <p class="partner-name">リノベーションプラス</p>
+        <p class="partner-specialty">改装・リノベーション</p>
+      </div>
+      <div class="partner-logo-box">
+        <img src="/api/placeholder/120/80" alt="クリエイト電気" class="partner-logo">
+        <p class="partner-name">クリエイト電気</p>
+        <p class="partner-specialty">電気工事</p>
+      </div>
+      <div class="partner-logo-box">
+        <img src="/api/placeholder/120/80" alt="水道テクノ" class="partner-logo">
+        <p class="partner-name">水道テクノ</p>
+        <p class="partner-specialty">給排水設備</p>
+      </div>
+    </div>
+    
+    <div class="partners-more">
+      <p>他にも1,000社以上の工事業者が登録しています</p>
+      <a href="#contact" class="cta-button partners-cta">登録業者について詳しく見る</a>
+    </div>
+  </div>
 </section>
 
 <!-- FAQ セクション -->
