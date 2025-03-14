@@ -1485,43 +1485,43 @@ footer {
     <h2 class="section-title" style="color: #001350; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">よくある質問</h2>
     <div class="faq-container">
       <!-- 質問1 -->
-      <div class="simple-faq-item">
-        <button class="simple-faq-question" onclick="simpleFaqToggle(0)">
-          料金体系について
-          <span class="material-icons">add</span>
-        </button>
-        <div class="simple-faq-answer" id="faq-answer-0" style="display: none;">
-          <div class="answer-content">
-            <p>発注企業様は無料でご利用いただけます。</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 質問2 -->
-      <div class="simple-faq-item">
-        <button class="simple-faq-question" onclick="simpleFaqToggle(1)">
-          工事会社の審査基準
-          <span class="material-icons">add</span>
-        </button>
-        <div class="simple-faq-answer" id="faq-answer-1" style="display: none;">
-          <div class="answer-content">
-            <p>実績、資格、財務状況、評判など複数の観点から厳格に審査しています。信用スコアは定期的に更新されます。</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 質問3 -->
-      <div class="simple-faq-item">
-        <button class="simple-faq-question" onclick="simpleFaqToggle(2)">
-          見積までの流れ
-          <span class="material-icons">add</span>
-        </button>
-        <div class="simple-faq-answer" id="faq-answer-2" style="display: none;">
-          <div class="answer-content">
-            <p>お問い合わせ後、複数業者に問合せ通知を行い、手を上げた会社からアクションがあります。また、弊社スタッフが直接工事業者を探して人力のサポートも行います。</p>
-          </div>
-        </div>
-      </div>
+<div class="simple-faq-item">
+  <button class="simple-faq-question">
+    料金体系について
+    <span class="material-icons">add</span>
+  </button>
+  <div class="simple-faq-answer" id="faq-answer-0" style="display: none;" data-open="false">
+    <div class="answer-content">
+      <p>発注企業様は無料でご利用いただけます。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 質問2 -->
+<div class="simple-faq-item">
+  <button class="simple-faq-question">
+    工事会社の審査基準
+    <span class="material-icons">add</span>
+  </button>
+  <div class="simple-faq-answer" id="faq-answer-1" style="display: none;" data-open="false">
+    <div class="answer-content">
+      <p>実績、資格、財務状況、評判など複数の観点から厳格に審査しています。信用スコアは定期的に更新されます。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 質問3 -->
+<div class="simple-faq-item">
+  <button class="simple-faq-question">
+    見積までの流れ
+    <span class="material-icons">add</span>
+  </button>
+  <div class="simple-faq-answer" id="faq-answer-2" style="display: none;" data-open="false">
+    <div class="answer-content">
+      <p>お問い合わせ後、複数業者に問合せ通知を行い、手を上げた会社からアクションがあります。また、弊社スタッフが直接工事業者を探して人力のサポートも行います。</p>
+    </div>
+  </div>
+</div>
     </div>
   </div>
   </section>
@@ -1559,7 +1559,7 @@ footer {
     
     <div class="form-benefits">
       <p><strong>導入メリット</strong>：時間短縮・コスト削減・品質向上</p>
-      <p class="form-stats">導入企業数：<strong>142社</strong> / 登録工事会社数：<strong>1,250社</strong></p>
+      <p class="form-stats">登録工事会社数：<strong>5,500社</strong></p>
     </div>
     
     <button type="submit" class="submit-button">送信する</button>
@@ -1615,6 +1615,35 @@ footer {
   </div>
 </div>
 </footer>
+
+<script>
+  // すべてのFAQボタンを動作させるスクリプト
+  document.addEventListener('DOMContentLoaded', function() {
+    // すべてのFAQ質問を取得
+    var faqButtons = document.querySelectorAll('.simple-faq-question');
+    
+    // 各ボタンにクリックイベントを追加
+    faqButtons.forEach(function(button, index) {
+      button.addEventListener('click', function() {
+        // 対応する回答要素を取得
+        var answer = document.getElementById('faq-answer-' + index);
+        // アイコン取得
+        var icon = this.querySelector('.material-icons');
+        
+        // 表示・非表示を切り替え
+        if (answer.style.display === 'block') {
+          answer.style.display = 'none';
+          icon.textContent = 'add';
+        } else {
+          answer.style.display = 'block';
+          icon.textContent = 'remove';
+        }
+      });
+    });
+  });
+  </script>
+
+
 
 <!-- JavaScriptコード -->
 <script>
@@ -1800,24 +1829,25 @@ logo.addEventListener('mouseleave', () => {
   margin: 0;
 }
 
+// 非常にシンプルなFAQトグル関数
 function simpleFaqToggle(index) {
   // 回答要素を取得
   var answer = document.getElementById('faq-answer-' + index);
-  // 質問ボタンを取得
-  var question = answer.previousElementSibling;
   // アイコンを取得
-  var icon = question.querySelector('.material-icons');
+  var icon = answer.previousElementSibling.querySelector('.material-icons');
   
-  // 計算されたスタイルで表示状態をチェック
-  var isHidden = window.getComputedStyle(answer).display === 'none';
+  // data属性を使って状態を管理（初期状態は閉じている）
+  var isOpen = answer.getAttribute('data-open') === 'true';
   
-  if (isHidden) {
-    // 非表示なら表示する
-    answer.style.display = 'block';
-    icon.textContent = 'remove';
-  } else {
-    // 表示されていれば非表示にする
+  if (isOpen) {
+    // 開いている場合は閉じる
     answer.style.display = 'none';
     icon.textContent = 'add';
+    answer.setAttribute('data-open', 'false');
+  } else {
+    // 閉じている場合は開く
+    answer.style.display = 'block';
+    icon.textContent = 'remove';
+    answer.setAttribute('data-open', 'true');
   }
 }
