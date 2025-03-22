@@ -1,8 +1,4 @@
-.challenge-card, .feature-card, .step-card, .case-card, .faq-item {
-  z-index: 10;
-  position: relative;
-  border: 2px solid #e5e7eb;
-}<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -11,12 +7,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
 /* リセットCSS */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* この部分を追加 */
+.challenge-card, .feature-card, .step-card, .case-card, .faq-item {
+  z-index: 10;
+  position: relative;
+  border: 2px solid #e5e7eb;
 }
 
 /* 基本スタイル */
